@@ -53,7 +53,7 @@ gaps outer 0
 # exec --no-startup-id fcitx5 -d
 
 # Set wallpaper
-exec_always --no-startup-id feh --bg-scale ~/.background-image
+exec_always --no-startup-id feh --bg-fill ~/.background-image
 
 #----------------------------------------------------------------------
 # Keybindings
