@@ -16,4 +16,8 @@
 
   # Scale display
   services.xserver.dpi = 220;
+
+  # Set Key Repeat Rate
+  services.xserver.autoRepeatDelay = 200;
+  services.xserver.autoRepeatInterval = 25;
 }
