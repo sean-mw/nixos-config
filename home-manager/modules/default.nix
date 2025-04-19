@@ -6,5 +6,6 @@
     ./cursor.nix
     ./picom.nix
     ./rofi.nix
+    ./direnv.nix
   ];
 }
