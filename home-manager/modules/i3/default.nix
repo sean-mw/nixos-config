@@ -1,6 +1,6 @@
 {
   home.file = {
-    ".config/i3/config".source = ./i3;
+    ".config/i3/config".source = ./config;
     ".background-image".source = ./wallpaper.png;
   };
 }

@@ -8,5 +8,6 @@
     feh
     unzip
     xclip
+    flameshot
   ];
 }
