@@ -7,10 +7,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = { self, nixpkgs, home-manager, nvf, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
   let
     system = "x86_64-linux";
     homeStateVersion = "24.11";
@@ -26,7 +25,6 @@
       };
       modules = [
         ./hosts/${hostname}/configuration.nix
-        nvf.nixosModules.default
       ];
     };
   in {

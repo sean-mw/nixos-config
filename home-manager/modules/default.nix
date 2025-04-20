@@ -7,5 +7,6 @@
     ./picom.nix
     ./rofi.nix
     ./direnv.nix
+    ./nvim
   ];
 }

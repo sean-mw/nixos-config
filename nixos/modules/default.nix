@@ -10,6 +10,5 @@
     ./timezone.nix
     ./update.nix
     ./user.nix
-    ./nvf.nix
   ];
 }

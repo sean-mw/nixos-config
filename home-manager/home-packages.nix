@@ -7,5 +7,6 @@
     firefox
     feh
     unzip
+    xclip
   ];
 }
