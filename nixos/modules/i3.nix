@@ -20,4 +20,10 @@
   # Set Key Repeat Rate
   services.xserver.autoRepeatDelay = 200;
   services.xserver.autoRepeatInterval = 25;
+
+  # Configure mouse
+  services.libinput.mouse = {
+    accelProfile = "flat";
+    accelSpeed = "0.5";
+  };
 }
