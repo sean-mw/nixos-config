@@ -6,7 +6,7 @@ in
     enable = true;
     activeOpacity = 0.95;
     inactiveOpacity = 0.8;
-    fade = true;
+    fade = false;
     opacityRules = map (window: "100:class_g *?= '${window}'") opaqueWindows;
     settings = {
       corner-radius = 0; 
