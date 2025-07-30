@@ -16,17 +16,17 @@ focus_follows_mouse no
 
 # Reading colors from resources
 set_from_resource $back			i3wm.background #1D1F21
-set_from_resource $black		i3wm.color0		#282A2E
-set_from_resource $grey			i3wm.color8		#373B41
-set_from_resource $lightgrey	i3wm.color7		#707880
+set_from_resource $black		i3wm.color0	#282A2E
+set_from_resource $grey			i3wm.color8	#373B41
+set_from_resource $lightgrey		i3wm.color7	#707880
 set_from_resource $white		i3wm.color15	#C5C8C6
 set_from_resource $yellow		i3wm.color11	#F0C674
-set_from_resource $red			i3wm.color9		#CC6666
-set_from_resource $darkred		i3wm.color1		#A54242
+set_from_resource $red			i3wm.color9	#CC6666
+set_from_resource $darkred		i3wm.color1	#A54242
 set_from_resource $green		i3wm.color10	#B5BD56
 
 #class                  border      backgr.     text        split
-client.focused          $green     $green       $black      $red
+client.focused          $white      $white      $black      $white
 client.focused_inactive $grey       $grey       $lightgrey  $grey
 client.unfocused        $grey       $grey       $lightgrey  $grey
 client.urgent           $red        $red        $black      $red
@@ -39,21 +39,8 @@ gaps outer 0
 #----------------------------------------------------------------------
 # Startup
 #----------------------------------------------------------------------
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
 # No background
-# exec --no-startup-id xsetroot -solid $back
-
-# Keyboard layout settings
-# exec --no-startup-id setxkbmap -layout us -variant intl
-
-# Input methods
-# exec --no-startup-id fcitx5 -d
-
-# Set wallpaper
-exec_always --no-startup-id feh --bg-fill ~/.background-image
+exec --no-startup-id xsetroot -solid $back
 
 #----------------------------------------------------------------------
 # Keybindings
@@ -61,12 +48,10 @@ exec_always --no-startup-id feh --bg-fill ~/.background-image
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# bindsym $mod+o exec rofi -show run
 bindsym $mod+space exec rofi -show run
 
 # start a terminal
 bindsym $mod+Return exec alacritty
-# bindsym $mod+n exec ghostty --gtk-single-instance=true
 bindsym $mod+d split h
 bindsym $mod+Shift+d split v
 
@@ -219,10 +204,14 @@ bindsym $mod+BackSpace mode "$mode_system"
 # finds out, if available)
 bar {
     status_command i3status
-
+    position top
     font pango:JetBrainsMono
     colors {
         background $back
+
+	# class            border bg     text
+	focused_workspace  $white $white $black
+	inactive_workspace $grey  $black $white
     }
 }
 

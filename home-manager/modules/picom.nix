@@ -9,7 +9,7 @@ in
     fade = true;
     opacityRules = map (window: "100:class_g *?= '${window}'") opaqueWindows;
     settings = {
-      corner-radius = 12; 
+      corner-radius = 0; 
     };
   };
 }
