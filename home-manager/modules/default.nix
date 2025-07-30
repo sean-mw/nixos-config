@@ -5,7 +5,7 @@
     ./i3
     ./cursor.nix
     ./picom.nix
-    ./rofi.nix
+    ./rofi
     ./direnv.nix
     ./nvim
   ];

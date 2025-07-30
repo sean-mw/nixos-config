@@ -1,0 +1,47 @@
+configuration {
+    font: "JetBrainsMono 12";
+    display-run: ">";
+}
+
+* {
+    background-color: Black;
+    text-color: White;
+    border-color: White;
+}
+
+window {
+    border: 3px;
+    width: 25%;
+}
+
+mainbox {
+    children: [inputbar, listview];
+    orientation: vertical;
+    spacing: 5px;
+}
+
+inputbar {
+    border: 0 0 3px 0;
+    padding: 8px;
+    children: [prompt, entry];
+    orientation: horizontal;
+    spacing: 5px;
+}
+
+listview {
+    padding: 8px;
+    lines: 10;
+}
+
+element {
+    children: [element-text];
+}
+
+element-text {
+    text-color: Grey;
+}
+
+element-text selected {
+    text-color: White;
+}
+
