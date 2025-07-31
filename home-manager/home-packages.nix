@@ -9,5 +9,6 @@
     unzip
     xclip
     flameshot
+    spotify
   ];
 }
