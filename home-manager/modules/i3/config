@@ -212,6 +212,7 @@ bar {
     status_command i3status
     position top
     font pango:JetBrainsMono
+    padding 0 6px 0 0
     colors {
         background $back
 
