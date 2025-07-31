@@ -10,5 +10,6 @@
     ./timezone.nix
     ./update.nix
     ./user.nix
+    ./bluetooth.nix
   ];
 }
