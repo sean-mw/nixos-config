@@ -42,6 +42,7 @@
           pkgs = nixpkgs.legacyPackages.${host.system};
           extraSpecialArgs = {
             inherit inputs homeStateVersion user;
+	    hostname = host.hostname;
           };
           modules = [
             ./home-manager/home.nix
