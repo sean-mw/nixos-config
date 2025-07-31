@@ -4,7 +4,7 @@
     settings = {
       window.opacity = 0.95;
       font = {
-        size = 16;
+        size = 32;
       };
     };
   };

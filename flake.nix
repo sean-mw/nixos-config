@@ -11,14 +11,14 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: 
   let
-    system = "x86_64-linux";
     homeStateVersion = "24.11";
     user = "sean";
     hosts = [
-      { hostname = "thinkcentre"; stateVersion = "24.11"; }
+      { hostname = "thinkcentre"; stateVersion = "24.11"; system = "x86_64-linux"; }
+      { hostname = "macbook-air-m3"; stateVersion = "25.05"; system = "aarch64-linux"; }
     ];
 
-    makeSystem = { hostname, stateVersion }: nixpkgs.lib.nixosSystem {
+    makeSystem = { hostname, stateVersion, system }: nixpkgs.lib.nixosSystem {
       system = system;
       specialArgs = {
         inherit inputs hostname stateVersion user;
@@ -31,19 +31,23 @@
     nixosConfigurations = nixpkgs.lib.foldl' (configs: host:
       configs // {
         "${host.hostname}" = makeSystem {
-          inherit (host) hostname stateVersion; 
+          inherit (host) hostname stateVersion system; 
         };
       }) {} hosts;
 
-    homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      extraSpecialArgs = {
-        inherit inputs homeStateVersion user;
-      };
-
-      modules = [
-        ./home-manager/home.nix
-      ];
-    };
+    homeConfigurations = nixpkgs.lib.listToAttrs (
+      map (host: {
+        name = "${user}@${host.hostname}";
+        value = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${host.system};
+          extraSpecialArgs = {
+            inherit inputs homeStateVersion user;
+          };
+          modules = [
+            ./home-manager/home.nix
+          ];
+        };
+      }) hosts
+    );
   };
 }

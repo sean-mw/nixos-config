@@ -15,7 +15,7 @@
   services.xserver.windowManager.i3.enable = true;
 
   # Scale display
-  services.xserver.dpi = 150;
+  services.xserver.dpi = 220;
 
   # Set Key Repeat Rate
   services.xserver.autoRepeatDelay = 200;
