@@ -27,6 +27,9 @@
 
   virtualisation.vmware.guest.enable = true;
 
+  networking.interfaces.ens160.useDHCP = true;
+  networking.firewall.enable = true;
+
   # Fonts
   fonts.packages = with pkgs; [
     jetbrains-mono
