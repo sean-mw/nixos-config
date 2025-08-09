@@ -14,6 +14,8 @@
       lua-language-server
       nil
       nixd
+      gopls
+      pyright
     ];
   };
 }

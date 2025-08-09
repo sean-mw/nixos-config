@@ -2,26 +2,21 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
       {
-        "saghen/blink.cmp",
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files
-        opts = {
-          library = {
-            -- Load luvit types when the `vim.uv` word is found
-            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-          },
-        },
       },
     },
     config = function()
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      local lspconfig = require("lspconfig")
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      require("lspconfig").lua_ls.setup { capabilities = capabilities }
-      require("lspconfig").gopls.setup { capabilities = capabilities }
-      require("lspconfig").racket_langserver.setup { capabilities = capabilities }
-      require("lspconfig").nixd.setup { capabilities = capabilities }
-      require("lspconfig").clangd.setup { capabilities = capabilities }
+      lspconfig.lua_ls.setup { capabilities = capabilities }
+      lspconfig.gopls.setup { capabilities = capabilities }
+      lspconfig.nixd.setup { capabilities = capabilities }
+      lspconfig.clangd.setup { capabilities = capabilities }
+      lspconfig.pyright.setup { capabilities = capabilities }
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
