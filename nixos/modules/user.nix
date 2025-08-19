@@ -3,11 +3,13 @@
 {
   programs.zsh.enable = true;
 
+  virtualisation.docker.enable = true;
+
   users = {
     defaultUserShell = pkgs.zsh;
     users.${user} = {
       isNormalUser = true;
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "docker" ];
     };
   };
 
